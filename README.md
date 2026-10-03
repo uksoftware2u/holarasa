@@ -37,9 +37,13 @@ Build generates eight pre-rendered Chinese pages, with client-side English switc
 
 Source repository: https://github.com/uksoftware2u/holarasa
 
-`netlify.toml` is ready for a Netlify Git-connected deployment: build command `npm run build`, publish directory `dist`. Cloudflare Pages can use the same command and output directory. A hosting account and site connection are still required. No live deployment is implied by this configuration.
+Live website: https://uksoftware2u.github.io/holarasa/
 
-GitHub Pages is not used because this site's purpose includes commercial ordering. GitHub Pages commercial-use limits: https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits
+GitHub Pages publishes the pre-rendered root files from `main`, with `.nojekyll` preserving plain static output. It was enabled following the user's repeated request to use that specific address. Requests are prepared locally and sent by the customer through WhatsApp; there is no server-side order processing or payment system on Pages.
+
+`netlify.toml` is also ready for a Netlify Git-connected deployment: build command `npm run build`, publish directory `dist`. Cloudflare Pages can use the same command and output directory. Those alternatives still require a hosting account and site connection.
+
+GitHub Pages commercial-use limits still apply: https://docs.github.com/en/pages/getting-started-with-github-pages/github-pages-limits
 
 ## Current request flow
 
