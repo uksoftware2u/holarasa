@@ -1,0 +1,9 @@
+dist/
+node_modules/
+verification/
+.netlify/
+.env
+.env.*
+assets/rice.jpg
+assets/grill.jpg
+assets/drink.jpg
