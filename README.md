@@ -12,6 +12,7 @@ Professional bilingual Ang Ku Kueh brand website. All local project files are in
 - `booking.html`: pre-order request with date, occasion and selected product.
 - `inquiry.html`: general / corporate inquiries, design references and contact details.
 - `about.html`: the brand story and the symbolism of good wishes.
+- `blessings.html`: cinematic Caishen artwork, animated four-digit random generator, warm wishes, copy and WhatsApp / Facebook sharing. Shared URLs preserve the digits (including leading zeroes) and the selected wish. No purchase, prediction or payment functions.
 
 Chinese / English switching preserves current form values and the selected flavour. Language and the product list are device-local preferences. Personal form details remain in page memory and are not saved to localStorage.
 
@@ -31,7 +32,7 @@ npm run check
 npm run build
 ```
 
-Build generates eight pre-rendered Chinese pages, with client-side English switching, and a self-contained `dist` folder. The build checks all local asset references and internal page links. Edit `app.js`, `styles.css` and `shell.html`, then rebuild. Generated root HTML pages remain directly usable locally.
+Build generates nine pre-rendered Chinese pages, with client-side English switching, and a self-contained `dist` folder. The build checks all local asset references and internal page links. Edit `app.js`, `styles.css` and `shell.html`, then rebuild. Generated root HTML pages remain directly usable locally.
 
 ## Hosting
 

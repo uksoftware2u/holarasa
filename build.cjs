@@ -13,7 +13,8 @@ const routes={
   order:['产品订购 · HOLA RASA','选择产品、口味和数量，整理配送资料，通过 WhatsApp 发送订购需求。'],
   booking:['预约 · HOLA RASA','提前预约满月礼盒、宴会糕点与批量订购，由商家确认日期与安排。'],
   inquiry:['联系与咨询 · HOLA RASA','咨询产品、口味、企业客制设计及冷链配送。'],
-  about:['关于我们 · HOLA RASA','一份红龟粿，一份祝福。认识 HOLA RASA 的品牌故事。']
+  about:['关于我们 · HOLA RASA','一份红龟粿，一份祝福。认识 HOLA RASA 的品牌故事。'],
+  blessings:['财神送福 · HOLA RASA','领取四位幸运号码，分享财神祝福与好心意。号码随机生成，仅供娱乐。']
 };
 fs.mkdirSync(output,{recursive:true});
 for(const [route,meta] of Object.entries(routes)){
@@ -29,10 +30,13 @@ fs.mkdirSync(path.join(output,'assets'),{recursive:true});
 const assets=['favicon.svg','logo.jpg','hero.jpg','original.jpg','savory.jpg','peanut.jpg','earl-grey.jpg','matcha.jpg','gift-1.jpg','gift-2.jpg',...Array.from({length:6},(_,i)=>'product-'+(i+1)+'.jpg')];
 for(const file of assets)fs.copyFileSync(path.join(root,'assets',file),path.join(output,'assets',file));
 fs.writeFileSync(path.join(output,'robots.txt'),'User-agent: *\nAllow: /\n');
+fs.mkdirSync(path.join(output,'lucky-number','assets'),{recursive:true});
+fs.copyFileSync(path.join(root,'lucky-number','fortune.js'),path.join(output,'lucky-number','fortune.js'));
+fs.copyFileSync(path.join(root,'lucky-number','assets','caishen-blessing.png'),path.join(output,'lucky-number','assets','caishen-blessing.png'));
 for(const file of Object.keys(routes)){
   const html=fs.readFileSync(path.join(output,file+'.html'),'utf8');
   for(const match of html.matchAll(/(?:src|href)="([^"#?]+)(?:[?#][^"]*)?"/g)){
     const ref=match[1];if(!/^(https?:|data:|tel:|mailto:)/.test(ref)&&!fs.existsSync(path.join(output,ref)))throw new Error('Missing reference '+ref+' in '+file);
   }
 }
-console.log('Built and checked 8 pages, local assets and internal links. Output: '+output);
+console.log('Built and checked '+Object.keys(routes).length+' pages, local assets and internal links. Output: '+output);
